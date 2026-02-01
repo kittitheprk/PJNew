@@ -5,6 +5,8 @@
 ## Overview
 This project is an interactive narrative game set in **STEREA International Institute**, a brutalist and mysterious academic institution. The system focuses on tracking player psychology and decision-making through a sophisticated "**Stats Matrix**" rather than traditional RPG stats.
 
+The client is built with **React + Vite** and features a "Rich Aesthetics" Brutalist design with animations and real-time data visualization.
+
 ## Story: The Weight of Stone
 The story begins with the **Prologue**, where the player arrives at the institute. Every small action—from how you walk through the gate to how you handle a collision with another student—is measured by the system.
 
@@ -31,18 +33,45 @@ At the end of the prologue, players are sorted into one of four dormitories base
 - **SKIA** (Hall of Shadows): High Intellect.
 - **ANTOCHI** (Hall of Endurance): High Resilience / Balanced.
 
+### 3. Psych Engine & Visualization
+- **Radar Chart**: Real-time D3/SVG visualization of your personality shape.
+- **Feedback System**: Interactive toasts and cues when stats change.
+
 ## Project Structure
 
 ```
 PJNew/
+├── client/                 # React + Vite Frontend Application
+│   ├── src/
+│   │   ├── components/     # Game Components (RadarChart, SceneDisplay)
+│   │   ├── context/        # Logic State (StatsContext, GameContext)
+│   │   ├── data/           # Game Data (scenes.ts, game_config.json)
+│   │   └── types/          # TypeScript Definitions
+│   └── tailwind.config.js  # Styling & Theming
 ├── config/
-│   └── stat_config.json    # Game logic definitions (Choice effects & Sorting rules)
-├── database/
-│   └── schema.sql          # SQL schema for the 'player_stats' table
-├── PROLOGUE_...md          # Source script and game design document
-└── README.md               # Project documentation
+│   └── stat_config.json    # Original Game Logic Definitions
+├── PROLOGUE_...md          # Source Script
+└── README.md               # Project Documentation
 ```
 
-## Setup & Configuration
-- **Database**: Use `database/schema.sql` to initialize the `player_stats` table in your SQL database.
-- **Logic**: Load `config/stat_config.json` into your game engine to handle choice consequences and sorting logic dynamically.
+## Setup & Running
+1.  Navigate to the client directory:
+    ```bash
+    cd client
+    ```
+2.  Install dependencies:
+    ```bash
+    npm install
+    ```
+3.  Start the development server:
+    ```bash
+    npm run dev
+    ```
+4.  Open the game at `http://localhost:5173`.
+
+## Architecture Layers
+- **Layer 1 (Input)**: Player Decisions via `DecisionPoint.tsx`.
+- **Layer 2 (Processing)**: `StatsContext` updates the hidden 6-variable matrix.
+- **Layer 3 (Feedback)**: `RadarChart` and `StatFeedback` provide immediate visual responses.
+- **Layer 4 (Progression)**: `SceneDisplay` handles linear flow and logic gates (Sorting).
+- **Layer 5 (Results)**: Final analysis screen showing your assigned Dorm.
