@@ -1,0 +1,7 @@
+Scene ID,Scene Name,Choice ID,Choice Description,Stance,Drive,Intellect,Knowledge,Empathy,Resilience
+SCN_001,The Gate,A,Walk straight through (Confront),1,2,0,0,-1,0
+SCN_001,The Gate,B,Observe from corner (Analyze),-1,0,2,0,0,0
+SCN_001,The Gate,C,Follow the group (Blend in),0,-1,0,1,0,1
+SCN_002,The Friction,A,Apologize (Polite),-1,0,0,0,2,0
+SCN_002,The Friction,B,Stare back (Aggressive),2,0,0,0,-1,0
+SCN_002,The Friction,C,Ignore (Stoic),0,0,1,0,0,2
