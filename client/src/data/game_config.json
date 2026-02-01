@@ -1,0 +1,44 @@
+{
+  "default_stats": {
+    "stance": 0,
+    "drive": 0,
+    "intellect": 0,
+    "knowledge": 0,
+    "empathy": 0,
+    "resilience": 0
+  },
+  "choices": {
+    "SCN_001_ARRIVAL": {
+      "choice_A": { "drive": 2, "stance": 1, "empathy": -1 },
+      "choice_B": { "intellect": 2, "stance": -1 },
+      "choice_C": { "knowledge": 1, "resilience": 1, "drive": -1 }
+    },
+    "SCN_002_FRICTION": {
+      "choice_A": { "empathy": 2, "stance": -1 },
+      "choice_B": { "stance": 2, "empathy": -1 },
+      "choice_C": { "resilience": 2, "intellect": 1 }
+    }
+  },
+  "sorting_logic": [
+    {
+      "condition": "stance >= 2 && drive >= 1",
+      "dorm": "AKRON",
+      "description": "The Hall of Competition"
+    },
+    {
+      "condition": "empathy >= 2",
+      "dorm": "DESMOS",
+      "description": "The Hall of Connection"
+    },
+    {
+      "condition": "intellect >= 2",
+      "dorm": "SKIA",
+      "description": "The Hall of Shadows"
+    },
+    {
+      "condition": "default",
+      "dorm": "ANTOCHI",
+      "description": "The Hall of Endurance"
+    }
+  ]
+}
